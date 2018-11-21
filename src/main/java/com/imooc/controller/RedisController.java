@@ -1,19 +1,18 @@
 package com.imooc.controller;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.redis.core.StringRedisTemplate;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
 import com.imooc.pojo.IMoocJSONResult;
 import com.imooc.pojo.SysUser;
 import com.imooc.pojo.User;
 import com.imooc.utils.JsonUtils;
 import com.imooc.utils.RedisOperator;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 @RestController
 @RequestMapping("redis")
@@ -27,13 +26,15 @@ public class RedisController {
 	
 	@RequestMapping("/test")
 	public IMoocJSONResult test() {
-		
+
+
+
 		strRedis.opsForValue().set("imooc-cache", "hello 慕课网~~~~~~");
 		
 		SysUser user = new SysUser();
 		user.setId("100111");
-		user.setUsername("imooc");
-		user.setPassword("abc123");
+		user.setUsername("imoocccc");
+		user.setPassword("abc12345324");
 		user.setIsDelete(0);
 		user.setRegistTime(new Date());
 		strRedis.opsForValue().set("json:user", JsonUtils.objectToJson(user));

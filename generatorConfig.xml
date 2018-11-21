@@ -13,9 +13,9 @@
         </plugin>
 
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://localhost:3306/leecx"
+                        connectionURL="jdbc:mysql://192.168.1.30:8421/wxzt"
                         userId="root"
-                        password="root">
+                        password="WWW.vsion.cc">
         </jdbcConnection>
 
         <!-- 对于生成的pojo所在包 -->

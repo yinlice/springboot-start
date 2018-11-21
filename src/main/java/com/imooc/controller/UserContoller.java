@@ -1,19 +1,22 @@
 package com.imooc.controller;
 
-import java.util.Date;
-
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
-
 import com.imooc.pojo.IMoocJSONResult;
 import com.imooc.pojo.User;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Date;
 
 //@Controller
 @RestController		// @RestController = @Controller + @ResponseBody
 @RequestMapping("/user")
 public class UserContoller {
+	@Value(value = "${username}")
+	private String usrName;
+	@Value(value ="${password}")
+	private String password;
+
 
 	@RequestMapping("/getUser")
 //	@ResponseBody
@@ -41,5 +44,9 @@ public class UserContoller {
 		u.setDesc("hello imooc~~hello imooc~~");
 		
 		return IMoocJSONResult.ok(u);
+	}
+	@RequestMapping("/testValue")
+	public Object testValue(){
+		return usrName+password;
 	}
 }
